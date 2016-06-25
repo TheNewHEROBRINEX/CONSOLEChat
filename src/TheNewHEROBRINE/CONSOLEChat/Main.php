@@ -12,6 +12,7 @@ class Main extends PluginBase implements Listener{
     private $config;
 
     public function onEnable() {
+        @mkdir($this->getDataFolder());
         $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML, ["chat format" => "§d[Server] {msg}"]);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
